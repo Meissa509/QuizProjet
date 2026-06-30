@@ -1,100 +1,91 @@
+// Centrage complet de la page
 .register-container {
-  display: block;
-  max-width: 400px;
+  max-width: 450px;
   margin: 60px auto;
-  padding: 20px;
+  padding: 35px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-  .register-card {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+  }
 
-    h2 {
-      margin-bottom: 5px;
-      color: #333;
-      text-align: center;
+  // Style de chaque bloc de champ
+  .form-group {
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 8px;
+      color: #34495e;
+      font-size: 14px;
+      font-weight: 500;
     }
 
-    .subtitle {
-      font-size: 0.9rem;
-      color: #666;
-      text-align: center;
-      margin-bottom: 25px;
-    }
+    // Style commun pour les inputs et le select
+    .form-control {
+      padding: 12px 15px;
+      border: 1.5px solid #dcdde1;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      background-color: #f8f9fa;
+      color: #2c3e50;
+      outline: none;
 
-    .form-group {
-      margin-bottom: 20px;
-
-      label {
-        display: block;
-        margin-bottom: 6px;
-        font-weight: 600;
-        color: #444;
-        font-size: 0.9rem;
-      }
-
-      input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 0.95rem;
-        outline: none;
-        box-sizing: border-box;
-
-        &:focus {
-          border-color: #007bff;
-        }
-      }
-
-      .error-message {
-        color: #dc3545;
-        font-size: 0.8rem;
-        margin-top: 6px;
-        font-weight: 500;
+      &:focus {
+        border-color: #3498db;
+        background-color: #ffffff;
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
       }
     }
 
-    .btn-submit {
-      width: 100%;
-      padding: 12px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      font-size: 1rem;
-      font-weight: bold;
+    // Style spécifique au menu déroulant du rôle
+    select.form-control {
       cursor: pointer;
-      transition: background-color 0.2s;
+      appearance: none; // Enlève le style natif moche
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2334495e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+      padding-right: 40px;
+    }
+  }
 
-      &:hover:not(:disabled) {
-        background-color: #0056b3;
-      }
+  // Bouton de validation stylisé
+  .btn-submit {
+    width: 100%;
+    padding: 13px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px;
 
-      &:disabled {
-        background-color: #cccccc;
-        cursor: not-allowed;
-        opacity: 0.7;
-      }
+    &:hover:not(:disabled) {
+      background-color: #2980b9;
     }
 
-    .forgot-password-link {
-      text-align: center;
-      margin-top: 15px;
+    &:active:not(:disabled) {
+      transform: scale(0.98);
+    }
 
-      a {
-        color: #007bff;
-        text-decoration: none;
-        font-size: 0.85rem;
-        transition: color 0.2s;
-
-        &:hover {
-          color: #0056b3;
-          text-decoration: underline;
-        }
-      }
+    // Changement d'apparence si le formulaire n'est pas valide
+    &:disabled {
+      background-color: #b2bec3;
+      cursor: not-allowed;
+      opacity: 0.7;
     }
   }
 }
