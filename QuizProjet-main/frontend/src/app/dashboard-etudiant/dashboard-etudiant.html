@@ -1,1 +1,53 @@
-<p>dashboard-etudiant works!</p>
+<div class="admin-container">
+  <div class="admin-header">
+    <div>
+      <h2>Gestion des Étudiants</h2>
+      <p class="subtitle">Visualisez, activez ou bloquez les comptes des étudiants inscrits.</p>
+    </div>
+    <div class="stats-mini-card">
+      <span class="count">124</span>
+      <span class="label">Étudiants au total</span>
+    </div>
+  </div>
+
+  <div class="search-bar-container">
+    <input type="text" placeholder="Rechercher un étudiant par nom ou email..." class="search-input">
+  </div>
+
+  <div class="table-responsive">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Nom / Prénom</th>
+          <th>Email</th>
+          <th>Score Moyen</th>
+          <th>Quiz Complétés</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Meïssa Diop</strong></td>
+          <td>meissa.diop&#64;isi.sn</td>
+          <td><span class="score-badge good">85%</span></td>
+          <td>12 / 15</td>
+          <td><span class="status-badge active">Actif</span></td>
+          <td>
+            <button class="btn-action block-btn" title="Bloquer le compte">🔒 Bloquer</button>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Amadou Diallo</strong></td>
+          <td>amadou.diallo&#64;isi.sn</td>
+          <td><span class="score-badge average">62%</span></td>
+          <td>5 / 15</td>
+          <td><span class="status-badge blocked">Bloqué</span></td>
+          <td>
+            <button class="btn-action unblock-btn" title="Activer le compte">🔓 Activer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

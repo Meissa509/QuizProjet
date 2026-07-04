@@ -1,8 +1,13 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './core/guards/auth-guard';
 import { RegisterComponent } from './register/register';
 import { DashboardEtudiant } from './dashboard-etudiant/dashboard-etudiant';
 import { DashboardEvaluateur } from './dashboard-evaluateur/dashboard-evaluateur';
+
+// Import pour l'administration (Chemin direct corrigé sans sous-dossier fictif)
+import { AdminLayoutComponent } from './features/admin/admin-layout';
+import { ManageEtudiantsComponent } from './features/admin/manage-apprenants/manage-apprenants';
+import { ManageEvaluateursComponent } from './features/admin/manage-evaluateurs/manage-evaluateurs';
+import { AdminStats } from './features/admin/admin-stats/admin-stats';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -14,34 +19,24 @@ export const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
-  
-  // ROUTES POUR LES DASHBOARDS (CORRIGÉES)
-  { 
-    path: 'dashboard-etudiant', 
-    component: DashboardEtudiant 
+  {
+    path: 'dashboard-etudiant',
+    component: DashboardEtudiant
   },
-  { 
-    path: 'dashboard-evaluateur', 
-    component: DashboardEvaluateur 
+  {
+    path: 'dashboard-evaluateur',
+    component: DashboardEvaluateur
   },
 
+  // Configuration du Layout Admin avec la Sidebar
   {
     path: 'admin',
-    canActivate: [authGuard],
+    component: AdminLayoutComponent,
     children: [
-      {
-        path: 'questionnaires',
-        loadComponent: () => import('./features/questionnaire/questionnaire-list/questionnaire-list').then(m => m.QuestionnaireListComponent)
-      },
-      {
-        path: 'questionnaires/nouveau',
-        loadComponent: () => import('./features/questionnaire/questionnaire-form/questionnaire-form').then(m => m.QuestionnaireFormComponent)
-      },
-      {
-        path: 'questionnaires/modifier/:id',
-        loadComponent: () => import('./features/questionnaire/questionnaire-form/questionnaire-form').then(m => m.QuestionnaireFormComponent)
-      }
+      { path: '', redirectTo: 'stats', pathMatch: 'full' },
+      { path: 'stats', component: AdminStats },
+      { path: 'etudiants', component: ManageEtudiantsComponent },
+      { path: 'evaluateurs', component: ManageEvaluateursComponent }
     ]
-  },
-  { path: '**', redirectTo: 'login' }
+  }
 ];
